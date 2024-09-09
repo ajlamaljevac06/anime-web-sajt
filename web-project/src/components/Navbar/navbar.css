@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.navbar-list {
+  background-color: #34333c;
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 15px;
+  padding-left: 5px;
+  border-bottom: 0.2px solid white;
+}
+.img-nav {
+  width: 45px;
+  margin-right: 8px;
+  margin-top: 3px;
+  margin-left: 3px;
+}
+.h1-nav {
+  color: white;
+  font-family: Arial, sans-serif;
+  margin-top: 5px;
+  font-size: 30px;
+}
