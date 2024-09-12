@@ -1,9 +1,9 @@
-import { useState } from 'react'
+
 import { Routes, Route } from 'react-router-dom';
 import './App.css'
 import Navbar from './components/Navbar/navbar'
 import SideBar from './components/SideBar/sideBar'
-import Home from './pages/Home/home'
+import Home from './pages/Home/home';
 import AnimePage from './pages/AnimePage/animePage'
 import Manga from './pages/Manga/manga'
 import Favorites from './pages/Favorites/favorites'
