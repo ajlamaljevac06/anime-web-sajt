@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import './manga.css'; // Import CSS for styling
+import './manga.css'; 
 
 const Manga = () => {
   const [data, setData] = useState(null);
@@ -8,13 +8,13 @@ const Manga = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Set a higher limit to fetch more manga items
-        const response = await fetch("https://kitsu.io/api/edge/manga"); // Fetch 50 items
+
+        const response = await fetch("https://kitsu.io/api/edge/manga"); 
         if (!response.ok) {
           throw new Error(`Error: ${response.status}`);
         }
         const result = await response.json();
-        setData(result.data); // Access the 'data' field in the response
+        setData(result.data); 
       } catch (err) {
         setError(err.message);
       }
