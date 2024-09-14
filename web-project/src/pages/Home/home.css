@@ -1,3 +1,81 @@
-h1{
-    color: red;
-}
+.home {
+    padding: 20px;
+    background-color: #34333c;
+  }
+  
+  .carousel-container {
+    display: flex;
+    overflow-x: auto;
+    padding: 10px 0;
+    gap: 15px;
+    cursor: pointer;
+    scrollbar-width: thin; 
+    scrollbar-color: black #34333c; 
+  }
+  h2{
+    color: white;
+  }
+  
+  .carousel-container::-webkit-scrollbar {
+    height: 8px;
+  }
+  
+  .carousel-container::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+  }
+  
+  .carousel-container::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+  }
+  
+  .carousel-item {
+    flex: 0 0 auto; 
+    width: 150px;
+    text-align: center;
+  }
+  
+  .carousel-item img {
+    width: 100%;
+    height: auto;
+    max-height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+  }
+  
+  .carousel-item:hover img {
+    transform: scale(1.05);
+  }
+  
+  .legend {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #333;
+    font-weight: 500;
+  }
+
+  .carousel-container::before, .carousel-container::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 30px;
+    height: 30px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    z-index: 1;
+    cursor: pointer;
+  }
+  
+  .carousel-container::before {
+    left: 10px;
+    background: url('path-to-your-left-arrow-icon.svg') no-repeat center center;
+    background-size: 16px;
+  }
+  
+  .carousel-container::after {
+    right: 10px;
+    background: url('path-to-your-right-arrow-icon.svg') no-repeat center center;
+    background-size: 16px;
+  }
