@@ -4,11 +4,11 @@ import './manga.css';
 const Manga = () => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
+  const [selectedMangaId, setSelectedMangaId] = useState(null); 
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-
         const response = await fetch("https://kitsu.io/api/edge/manga"); 
         if (!response.ok) {
           throw new Error(`Error: ${response.status}`);
@@ -23,6 +23,11 @@ const Manga = () => {
     fetchData();
   }, []);
 
+  const handleCardClick = (id) => {
+  
+    setSelectedMangaId(selectedMangaId === id ? null : id);
+  };
+
   if (error) {
     return <div>Error: {error}</div>;
   }
@@ -34,7 +39,11 @@ const Manga = () => {
   return (
     <div className="card-container">
       {data.map((manga) => (
-        <div key={manga.id} className="card">
+        <div 
+          key={manga.id} 
+          className="card" 
+          onClick={() => handleCardClick(manga.id)} 
+        >
           <div className="card-img-container">
             <img
               src={manga.attributes.posterImage?.small}
@@ -43,9 +52,11 @@ const Manga = () => {
             />
             <div className="card-title">{manga.attributes.canonicalTitle}</div>
           </div>
-          <div className="card-content">
-            <p>{manga.attributes.synopsis}...</p>
-          </div>
+          {selectedMangaId === manga.id && ( 
+            <div className="card-content">
+              <p>{manga.attributes.synopsis}</p>
+            </div>
+          )}
         </div>
       ))}
     </div>
