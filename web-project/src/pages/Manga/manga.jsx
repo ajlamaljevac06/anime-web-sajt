@@ -4,7 +4,7 @@ import './manga.css';
 const Manga = () => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
-  const [selectedMangaId, setSelectedMangaId] = useState(null); 
+  const [selectedManga, setSelectedManga] = useState(null); 
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,9 +23,12 @@ const Manga = () => {
     fetchData();
   }, []);
 
-  const handleCardClick = (id) => {
-  
-    setSelectedMangaId(selectedMangaId === id ? null : id);
+  const handleCardClick = (manga) => {
+    setSelectedManga(manga);
+  };
+
+  const closeModal = () => {
+    setSelectedManga(null); 
   };
 
   if (error) {
@@ -37,28 +40,44 @@ const Manga = () => {
   }
 
   return (
-    <div className="card-container">
-      {data.map((manga) => (
-        <div 
-          key={manga.id} 
-          className="card" 
-          onClick={() => handleCardClick(manga.id)} 
-        >
-          <div className="card-img-container">
-            <img
-              src={manga.attributes.posterImage?.small}
-              alt={manga.attributes.canonicalTitle}
-              className="card-img"
-            />
-            <div className="card-title">{manga.attributes.canonicalTitle}</div>
-          </div>
-          {selectedMangaId === manga.id && ( 
-            <div className="card-content">
-              <p>{manga.attributes.synopsis}</p>
+    <div className="page-container"> 
+      <div className="card-container">
+        {data.map((manga) => (
+          <div 
+            key={manga.id} 
+            className="card" 
+            onClick={() => handleCardClick(manga)} 
+          >
+            <div className="card-img-container">
+              <img
+                src={manga.attributes.posterImage?.small}
+                alt={manga.attributes.canonicalTitle}
+                className="card-img"
+              />
+              <div className="card-title">{manga.attributes.canonicalTitle}</div>
             </div>
-          )}
+          </div>
+        ))}
+      </div>
+
+      {selectedManga && ( 
+        <div className="modal" onClick={closeModal}> 
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}> 
+            <img
+              src={selectedManga.attributes.posterImage?.large}
+              alt={selectedManga.attributes.canonicalTitle}
+              className="modal-img"
+            />
+            <div className="modal-text">
+              <div className="modal-title">{selectedManga.attributes.canonicalTitle}</div>
+              <div className="modal-description">
+                <p>{selectedManga.attributes.synopsis}</p>
+              </div>
+            </div>
+            <button className="close-button" onClick={closeModal}>Close</button>
+          </div>
         </div>
-      ))}
+      )}
     </div>
   );
 };

@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import { SearchContext } from "../../context/context";
+// import { SearchContext } from "../../context/context";
+import {AnimeSearchContext} from "../../context/context"
 
 
 const FetchAnime = () => {
-  const { search, category, setSearch } = useContext(SearchContext);
+  const { search, category, setSearch } = useContext(AnimeSearchContext);
   const [data, setData] = useState([]);
   const [offset, setOffset] = useState(0);
   const [limit, setLimit] = useState(20);

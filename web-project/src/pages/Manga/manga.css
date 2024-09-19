@@ -1,73 +1,86 @@
 
-.content {
-    margin-top: 30px; 
-    margin-left: 220px; 
-    padding: 20px;
-    width: calc(100% - 300px); 
-    box-sizing: border-box; 
-  }
-  
- 
-  .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-  }
-  
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
 
-  .card {
-    width: 200px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    position: relative;
-  }
-  
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 600px; 
+  width: 100%;
+  display: flex; 
+  gap: 20px; 
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
 
-  .card-img-container {
-    position: relative;
-  }
+.modal-img {
+  width: 40%;
+  height: auto;
+  border-radius: 8px;
+}
 
-  .card-img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-  }
-  
+.modal-text {
+  width: 60%; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
-  .card-title {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, 0.7); 
-    color: white;
-    font-size: 1.2em;
-    font-weight: bold;
-    opacity: 0;
-    transition: opacity 0.3s ease; 
-  }
-  
-  
-  .card-img-container:hover .card-title {
-    opacity: 1;
-  }
-  
-  
-  .card-content {
-    padding: 15px;
-  }
-  
+.modal-title {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 10px;
+}
 
-  .card-content p {
-    font-size: 0.9em;
-    color: #555;
-  }
-  
+.modal-description {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+  background-color: #ff4c4c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 200px;
+  margin: 10px;
+  cursor: pointer;
+  position: relative;
+}
+
+.card-img-container {
+  position: relative;
+}
+
+.card-img {
+  width: 100%;
+}
+
+.card-title {
+  text-align: center;
+  margin-top: 10px;
+}

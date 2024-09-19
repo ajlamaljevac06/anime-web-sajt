@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import SearchIcon from '@mui/icons-material/Search';
+// import SearchIcon from '@mui/icons-material/Search';
 import './searchBar.css';
 import { AnimeSearchContext } from "../../context/context";
 
