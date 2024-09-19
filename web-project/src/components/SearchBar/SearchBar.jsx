@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
-// import SearchIcon from '@mui/icons-material/Search';
+import SearchIcon from '@mui/icons-material/Search';
 import './searchBar.css';
-import { SearchContext } from "../../context/searchContextt";
+import { AnimeSearchContext } from "../../context/context";
 
 
 const SearchBar = () => {
-    const {search, setSearch} = useContext(SearchContext)
+    const {search, setSearch} = useContext(AnimeSearchContext)
     
 
     return (

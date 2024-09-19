@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import './CategorySearch.css'
-import { SearchContext } from "../../context/searchContextt";
+import { AnimeSearchContext } from "../../context/context";
 
 const CategorySearch = () => {
-    const { setCategory } = useContext(SearchContext);
+    const { setCategory } = useContext(AnimeSearchContext);
     const categories = [
         { id: 1, name: 'Choose a category'},
         { id: 2, name: 'Adventure' },

@@ -1,4 +1,37 @@
-:root {
+.flavortext {
+    top: 85%;
+    left: 50%;
+    width: 75%;
+  }
+  
+  .seriesimg:hover,
+  .seriesoverlay:hover {
+    transform: scale(1.05);
+    transition: 0.25s ease;
+  }
+  
+  .seriesimg:hover {
+    opacity: 0.2;
+  }
+  
+  .seriestitle,
+  .flavortext {
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+  
+  .series:hover .seriestitle,
+  .series:hover .flavortext {
+    opacity: 1;
+  }
+  
+  .loader{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  :root {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -44,38 +77,4 @@
     left: 50%;
     width: 75%;
     font-weight: bold;
-  }
-  
-  .flavortext {
-    top: 85%;
-    left: 50%;
-    width: 75%;
-  }
-  
-  .seriesimg:hover,
-  .seriesoverlay:hover {
-    transform: scale(1.05);
-    transition: 0.25s ease;
-  }
-  
-  .seriesimg:hover {
-    opacity: 0.2;
-  }
-  
-  .seriestitle,
-  .flavortext {
-    opacity: 0;
-    transition: opacity 0.25s ease;
-  }
-  
-  .series:hover .seriestitle,
-  .series:hover .flavortext {
-    opacity: 1;
-  }
-  
-  .loader{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
   }

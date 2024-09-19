@@ -3,6 +3,24 @@ import { createContext, useState, useEffect } from 'react';
 
 export const FavoritesContext = createContext();
 
+export const AnimeSearchContext = createContext();
+
+const AnimeSearchProvider = ({ children }) => {
+  const [search, setSearch] = useState("");
+  const [category, setCategory] = useState("");
+
+  return (
+
+      <SearchContext.Provider value={{ search, setSearch, category, setCategory }}>
+          {children}
+      </SearchContext.Provider>
+
+  )
+}
+
+export default AnimeSearchProvider;
+
+
 export const FavoritesProvider = ({ children }) => {
   const [favorites, setFavorites] = useState([]);
 
