@@ -1,54 +1,35 @@
-import React, { useState } from 'react';
+import React, { useContext } from "react";
+import './categorySearch.css'
+import { SearchContext } from "../../context/searchContextt";
 
-const categories = [
-  { id: 1, name: 'Adventure ' },
-  { id: 2, name: 'Action' },
-  { id: 3, name: 'Fantasy' },
-  { id: 4, name: 'Crime ' },
-  { id: 5, name: 'Drama' },
-  { id: 6, name: 'Romance' },
-  { id: 7, name: 'Supernatural' },
-  { id: 8, name: 'Magic' },
-  { id: 9, name: 'Horror' },
-];
-
-const SelectCategorySearchBar = () => {
-  const [selectedCategory, setSelectedCategory] = useState('');
-  const [searchTerm, setSearchTerm] = useState('');
-
-  const handleCategoryChange = (event) => {
-    setSelectedCategory(event.target.value);
-  };
-
-  const handleSearch = (event) => {
-    setSearchTerm(event.target.value);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
+const CategorySearch = () => {
+    const { setCategory } = useContext(SearchContext);
+    const categories = [
+        { id: 1, name: 'Choose a category'},
+        { id: 2, name: 'Adventure' },
+        { id: 3, name: 'Action' },
+        { id: 4, name: 'Fantasy' },
+        { id: 5, name: 'Crime' },
+        { id: 6, name: 'Drama' },
+        { id: 7, name: 'Romance' },
+        { id: 8, name: 'Supernatural' },
+        { id: 9, name: 'Magic' },
+        { id: 10, name: 'Horror' },
+        
+        
+      ];
     
-    console.log(`Searching for: ${searchTerm} in category: ${selectedCategory}`);
-  };
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <select value={selectedCategory} onChange={handleCategoryChange}>
-        <option value="">Select a category</option>
+    return(
+    <div className="categoryContainer">
+        <select className="categorySearch" onChange={(e) => setCategory(e.target.value)}>
         {categories.map((category) => (
           <option key={category.id} value={category.name}>
             {category.name}
           </option>
         ))}
       </select>
-      <input
-        type="text"
-        value={searchTerm}
-        onChange={handleSearch}
-        placeholder="Search..."
-      />
-      <button type="submit">Search</button>
-    </form>
-  );
-};
+    </div>
+    );
+}
 
-export default SelectCategorySearchBar;
+export default CategorySearch;

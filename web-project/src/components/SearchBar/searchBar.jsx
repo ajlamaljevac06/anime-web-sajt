@@ -1,29 +1,21 @@
-import React, { useState } from 'react';
+import React, { useContext } from "react";
+import SearchIcon from '@mui/icons-material/Search';
+import './searchBar.css';
+import { SearchContext } from "../../context/searchContextt";
+
 
 const SearchBar = () => {
-  const [searchTerm, setSearchTerm] = useState('');
+    const {search, setSearch} = useContext(SearchContext)
+    
 
-  const handleSearch = (event) => {
-    setSearchTerm(event.target.value);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-   
-    console.log(`Searching for: ${searchTerm}`);
-  };
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        value={searchTerm}
-        onChange={handleSearch}
-        placeholder="Search..."
-      />
-      <button type="submit">Search</button>
-    </form>
-  );
-};
+    return (
+    <div className='searchContainer'>
+      <div className='searchBar'>
+        <SearchIcon />
+        <input type='text' value={search} onChange={(e) => {setSearch(e.target.value)}} placeholder="Search"></input>
+      </div>
+    </div>
+    )
+}
 
 export default SearchBar;
