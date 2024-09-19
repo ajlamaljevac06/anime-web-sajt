@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "../AnimePage.css";
-import { SearchContext } from "../../../context/searchContextt";
-import CircularProgress from '@mui/material/CircularProgress';
+
+import { SearchContext } from "../../context/context";
+
 
 const FetchAnime = () => {
   const { search, category, setSearch } = useContext(SearchContext);

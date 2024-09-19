@@ -1,8 +1,9 @@
 import React from "react";
-import FetchAnime from "./Fetch/FetchAnime";
-import SearchBar from "../../components/SearchBar";
-import CategorySearch from "../../components/CategorySearch";
-import "./animePage.css";
+import FetchAnime from "./FetchAnime";
+import SearchBar from 'web-project/src/components/SearchBar/SearchBar.jsx' ;
+import CategorySearch from 'web-project/src/components/CategorySearch/CategorySearch.jsx';
+import './FetchAnime.css';
+
 const Anime = () => {
 
     return (
