@@ -1,3 +1,3 @@
-import { createContext } from "react";
+import { createContextt } from "react";
 
-export const SearchContext = createContext();
+export const SearchContext = createContextt();
